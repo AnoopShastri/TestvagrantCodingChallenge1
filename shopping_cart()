@@ -1,0 +1,27 @@
+def shopping_cart():
+    l=[1100,900,200,100]
+    for i in range(len(l)):
+        if l[i]>500:
+            l[i]-=l[i]*0.05
+    #print(l)
+    quantity=[1,4,3,2]
+    total=[]
+    for i in range(len(l)):
+        total.append(l[i]*quantity[i])
+    #print(total)
+    gst=[0.18,0.12,0.28,0.0]
+    gst_amt=[]
+    gst_amt_only=[]
+    items=["Leather wallet","Umbrella","Cigerette","Honey"]
+    for i in range(len(gst)):
+        gst_amt.append([items[i],total[i]*gst[i]])
+        gst_amt_only.append(total[i]*gst[i])
+    #print(gst_amt)
+    #print(gst_amt_only)
+    print("Maximum gst=",max(gst_amt))
+    pay=[]
+    sum1=0
+    for i in range(len(items)):
+        total[i]=total[i]+gst_amt_only[i]
+        sum1+=total[i]
+    print("Total given=",sum1)
